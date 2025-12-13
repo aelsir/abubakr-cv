@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" x-data="resumeApp()" :dir="lang === 'ar' ? 'rtl' : 'ltr'">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].name + ' - Resume'">Abubakr Al-Sir - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dusk-blue': '#004e89',
+                        'baltic-blue': '#1a659e',
+                        'atomic-tangerine': '#ff6b35',
+                        'beige-bg': '#efefd0',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Merriweather"', 'serif'],
+                        arabic: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        /* Font switching based on direction/lang */
+        html[dir="rtl"] body,
+        html[dir="rtl"] h1,
+        html[dir="rtl"] h2,
+        html[dir="rtl"] h3 {
+            font-family: 'Tajawal', sans-serif !important;
+        }
+
+        /* Print Override */
+        @media print {
+            body {
+                background: white !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .shadow-xl {
+                box-shadow: none !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 py-10 print:py-0 text-slate-800">
+
+    <!-- Floating Actions -->
+    <div class="fixed top-5 right-5 z-50 flex gap-3 no-print">
+        <button @click="toggleLang()"
+            class="bg-dusk-blue text-white px-4 py-2 rounded-full shadow-lg hover:bg-baltic-blue transition-colors font-medium text-sm flex items-center gap-2">
+            <span x-text="lang === 'en' ? 'العربية' : 'English'"></span>
+        </button>
+        <button onclick="window.print()"
+            class="bg-atomic-tangerine text-white px-4 py-2 rounded-full shadow-lg hover:bg-[#e85a25] transition-colors font-medium text-sm flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+                </path>
+            </svg>
+            Print / PDF
+        </button>
+        <a href="index.html"
+            class="bg-white text-dusk-blue px-4 py-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors font-medium text-sm flex items-center gap-2">
+            Back to Site
+        </a>
+    </div>
+
+    <!-- Resume Page (A4 Size approximation) -->
+    <main
+        class="container max-w-[210mm] mx-auto bg-white shadow-xl min-h-[297mm] relative overflow-hidden print:min-h-0 print:shadow-none">
+
+        <!-- Header -->
+        <header class="bg-dusk-blue text-white p-12 print:p-8">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="font-serif font-black text-3xl md:text-5xl mb-2 tracking-tight" x-text="t[lang].name">
+                    </h1>
+                    <p class="text-xl text-atomic-tangerine font-medium tracking-wide" x-text="t[lang].role"></p>
+                </div>
+                <div class="text-right text-sm text-slate-300 space-y-1">
+                    <p x-text="t[lang].location">Abu Dhabi, UAE</p>
+                    <p x-text="t[lang].badges.license">Valid UAE License</p>
+                    <p class="font-mono text-white pt-2">pikoo876@gmail.com</p>
+                    <p class="font-mono text-white" dir="ltr">+971 56 263 1624</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-[1fr_2fr] h-full">
+
+            <!-- Sidebar -->
+            <aside class="bg-beige-bg p-8 print:p-6 space-y-8 h-full min-h-[cal(297mm-150px)]">
+
+                <!-- Skills -->
+                <section>
+                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
+                        x-text="t[lang].headings.skills">Competencies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <template x-for="skill in t[lang].skills">
+                            <span
+                                class="bg-white px-2 py-1 rounded text-xs font-semibold text-dusk-blue shadow-sm border border-dusk-blue/5"
+                                x-text="skill"></span>
+                        </template>
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section>
+                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
+                        x-text="t[lang].headings.languages">Languages</h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span x-text="t[lang].langs.arabic">Arabic</span>
+                                <span class="text-atomic-tangerine font-bold"
+                                    x-text="t[lang].langs.native">Native</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span x-text="t[lang].langs.english">English</span>
+                                <span class="text-atomic-tangerine font-bold"
+                                    x-text="t[lang].langs.fluent">Fluent</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section>
+                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
+                        x-text="t[lang].headings.education">Education</h3>
+                    <div class="space-y-4">
+                        <template x-for="edu in t[lang].education">
+                            <div>
+                                <h4 class="font-bold text-dusk-blue text-sm" x-text="edu.degree"></h4>
+                                <p class="text-xs text-slate-600 mt-0.5" x-text="edu.school"></p>
+                                <p class="text-xs text-baltic-blue mt-0.5" x-text="edu.year"></p>
+                            </div>
+                        </template>
+                    </div>
+                </section>
+
+                <!-- Certifications (Brief) -->
+                <section>
+                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
+                        x-text="t[lang].headings.certifications">Certifications</h3>
+                    <ul class="space-y-2 text-xs text-slate-700">
+                        <li class="flex justify-between">
+                            <span class="font-semibold">Intl. Coaching Course (FIVB)</span>
+                            <span class="text-slate-500">2016</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-semibold">Sport Management</span>
+                            <span class="text-slate-500">2018</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-semibold">Data Volley Analysis</span>
+                            <span class="text-slate-500">2017</span>
+                        </li>
+                    </ul>
+                </section>
+
+            </aside>
+
+            <!-- Main Content -->
+            <div class="p-10 print:p-8 space-y-8">
+
+                <!-- Profile -->
+                <section>
+                    <h2 class="font-serif font-bold text-2xl text-dusk-blue mb-4" x-text="t[lang].headings.profile">
+                        Profile</h2>
+                    <p class="text-sm leading-relaxed text-slate-600 text-justify" x-text="t[lang].about"></p>
+                </section>
+
+                <!-- Experience -->
+                <section>
+                    <h2
+                        class="font-serif font-bold text-2xl text-dusk-blue mb-6 pb-2 border-b border-gray-100 flex justify-between items-baseline">
+                        <span x-text="t[lang].headings.experience">Professional Experience</span>
+                        <span class="text-xs font-sans font-normal text-slate-400">15+ Years</span>
+                    </h2>
+
+                    <div class="space-y-6">
+                        <template x-for="job in t[lang].experience">
+                            <article>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <h3 class="font-bold text-lg text-slate-800" x-text="job.title"></h3>
+                                    <span class="text-xs font-semibold text-baltic-blue bg-blue-50 px-2 py-1 rounded"
+                                        x-text="job.date"></span>
+                                </div>
+                                <div class="text-atomic-tangerine text-sm font-medium mb-2" x-text="job.company"></div>
+                                <ul class="list-disc ml-4 space-y-1">
+                                    <template x-for="detail in job.details">
+                                        <li class="text-sm text-slate-600 pl-1 leading-snug" x-text="detail"></li>
+                                    </template>
+                                </ul>
+                            </article>
+                        </template>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer CTA (Mobile Only) -->
+    <div class="text-center py-6 text-slate-400 text-sm no-print md:hidden">
+        <p>Use Desktop to Print to PDF</p>
+    </div>
+
+    <script>
+        function resumeApp() {
+            return {
+                lang: localStorage.getItem('cv_lang') || 'en',
+                toggleLang() {
+                    this.lang = this.lang === 'en' ? 'ar' : 'en';
+                    document.documentElement.setAttribute('dir', this.lang === 'ar' ? 'rtl' : 'ltr');
+                },
+                init() {
+                    document.documentElement.setAttribute('dir', this.lang === 'ar' ? 'rtl' : 'ltr');
+                },
+                t: {
+                    en: {
+                        name: "Abubakr Al-Sir",
+                        role: "PE Teacher & Fitness Coach",
+                        location: "Abu Dhabi, UAE",
+                        badges: { license: "UAE Driving License" },
+                        headings: {
+                            profile: "Professional Profile",
+                            experience: "Professional Experience",
+                            education: "Education",
+                            skills: "Competencies",
+                            languages: "Languages",
+                            certifications: "Certifications"
+                        },
+                        about: "Dedicated Physical Education teacher with over 15 years of experience in youth development and sports training. Proven track record including a Silver Medal at the Special Olympics (2007). Expert in student safeguarding, event management, and British Curriculum (CIE) delivery.",
+                        langs: { arabic: "Arabic", english: "English", native: "Native", fluent: "Fluent" },
+                        skills: ["Curriculum Planning", "Safeguarding", "Inclusive Ed (SEN)", "Event Org", "Team Leadership", "First Aid"],
+                        education: [
+                            { degree: "B.Sc. in Physical Education", school: "Sudan University", year: "2003" },
+                            { degree: "Diploma in Computer Science", school: "Arab Cultural Center", year: "2005" }
+                        ],
+                        experience: [
+                            {
+                                date: "2023 - Present",
+                                title: "Customer Service Rep",
+                                company: "Hemaya Company, UAE",
+                                details: [
+                                    "Managed diverse stakeholder communications in high-pressure environments.",
+                                    "Resolved complex issues with a focus on satisfaction and retention."
+                                ]
+                            },
+                            {
+                                date: "2019 - 2023",
+                                title: "Security Team Leader",
+                                company: "Star Company, UAE",
+                                details: [
+                                    "Led safeguarding protocols and risk assessments for large sites.",
+                                    "Conducted emergency response drills and staff training."
+                                ]
+                            },
+                            {
+                                date: "2017 - 2019",
+                                title: "PE Teacher",
+                                company: "Cambridge Intl. School",
+                                details: [
+                                    "Delivered British Curriculum (CIE) PE lessons for mixed-ability classes.",
+                                    "Organized inclusive sports days and safe swimming galas."
+                                ]
+                            },
+                            {
+                                date: "2017 - 2019",
+                                title: "Fitness Supervisor",
+                                company: "World Health Sports Club",
+                                details: [
+                                    "Designed safe, individualized training programs for diverse clients.",
+                                    "Ensured injury prevention through proper technique instruction."
+                                ]
+                            }
+                        ]
+                    },
+                    ar: {
+                        name: "أبوبكر السر",
+                        role: "معلم تربية بدنية ومدرب",
+                        location: "أبوظبي، الإمارات",
+                        badges: { license: "رخصة قيادة إماراتية" },
+                        headings: {
+                            profile: "الملف الشخصي",
+                            experience: "الخبرة العملية",
+                            education: "المؤهلات",
+                            skills: "الكفاءات",
+                            languages: "اللغات",
+                            certifications: "الشهادات"
+                        },
+                        about: "معلم تربية بدنية متفاني بخبرة تزيد عن 15 عاماً. سجل حافل بالنجاحات يشمل ميدالية فضية في الأولمبياد الخاص (2007). خبير في حماية الطلاب، وتنظيم الفعاليات، وتدريس المنهج البريطاني.",
+                        langs: { arabic: "العربية", english: "الإنجليزية", native: "اللغة الأم", fluent: "طلاقة" },
+                        skills: ["تخطيط المناهج", "حماية الطلاب", "التعليم الشامل", "تنظيم الفعاليات", "القيادة", "الإسعافات"],
+                        education: [
+                            { degree: "بكالوريوس تربية رياضية", school: "جامعة السودان", year: "2003" },
+                            { degree: "دبلوم علوم كمبيوتر", school: "المركز الثقافي العربي", year: "2005" }
+                        ],
+                        experience: [
+                            {
+                                date: "2023 - حتى الآن",
+                                title: "ممثل خدمة عملاء",
+                                company: "شركة حماية، الإمارات",
+                                details: [
+                                    "إدارة التواصل مع الجهات المعنية في بيئة عمل عالية الضغط.",
+                                    "حل المشكلات المعقدة مع التركيز على رضا العملاء."
+                                ]
+                            },
+                            {
+                                date: "2019 - 2023",
+                                title: "قائد فريق أمن",
+                                company: "شركة ستار، الإمارات",
+                                details: [
+                                    "قيادة بروتوكولات الحماية وتقييم المخاطر للمواقع.",
+                                    "إجراء تدريبات الطوارئ وتدريب الموظفين."
+                                ]
+                            },
+                            {
+                                date: "2017 - 2019",
+                                title: "معلم تربية بدنية",
+                                company: "مدرسة كامبريدج الدولية",
+                                details: [
+                                    "تدريس المنهج البريطاني (CIE) لجميع المراحل.",
+                                    "تنظيم الأيام الرياضية والمسابقات بأسلوب شامل."
+                                ]
+                            },
+                            {
+                                date: "2017 - 2019",
+                                title: "مشرف لياقة بدنية",
+                                company: "نادي الصحة العالمي",
+                                details: [
+                                    "تصميم برامج تدريب آمنة وفردية للعملاء.",
+                                    "ضمان الوقاية من الإصابات من خلال التعليم الصحيح."
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
