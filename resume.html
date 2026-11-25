@@ -1,371 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" x-data="resumeApp()" :dir="lang === 'ar' ? 'rtl' : 'ltr'">
-
+<html lang="ar" dir="rtl"
+      data-title-ar="السيرة الذاتية — أبوبكر السر خلف الله"
+      data-title-en="Resume — Abubakr Al-Sir Khalaf-allah">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title x-text="t[lang].name + ' - Resume'">Abubakr Al-Sir - Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap"
-        rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'dusk-blue': '#004e89',
-                        'baltic-blue': '#1a659e',
-                        'atomic-tangerine': '#ff6b35',
-                        'beige-bg': '#efefd0',
-                    },
-                    fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'],
-                        serif: ['"Merriweather"', 'serif'],
-                        arabic: ['Tajawal', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        [x-cloak] {
-            display: none !important;
-        }
-
-        /* Font switching based on direction/lang */
-        html[dir="rtl"] body,
-        html[dir="rtl"] h1,
-        html[dir="rtl"] h2,
-        html[dir="rtl"] h3 {
-            font-family: 'Tajawal', sans-serif !important;
-        }
-
-        /* Print Override */
-        @media print {
-            body {
-                background: white !important;
-            }
-
-            .no-print {
-                display: none !important;
-            }
-
-            .shadow-xl {
-                box-shadow: none !important;
-            }
-
-            .container {
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>السيرة الذاتية — أبوبكر السر خلف الله</title>
+  <meta name="theme-color" content="#e7e1d6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23c4583a'/%3E%3Cpath d='M10 0v32M22 0v32' stroke='%23fffaf2' stroke-width='2'/%3E%3Ccircle cx='16' cy='17' r='7' fill='%23f2b632'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/resume.css?v=6">
+  <script src="js/lang.js?v=6"></script>
 </head>
+<body>
 
-<body class="bg-gray-100 py-10 print:py-0 text-slate-800">
+<div class="tools">
+  <a href="index.html" data-lang-link><span data-l="ar">→ الموقع</span><span data-l="en">← Website</span></a>
+  <button type="button" data-lang-toggle><span data-l="ar">English</span><span data-l="en">العربية</span></button>
+  <button type="button" class="print" onclick="window.print()"><span data-l="ar">طباعة / PDF</span><span data-l="en">Print / PDF</span></button>
+</div>
 
-    <!-- Floating Actions -->
-    <div class="fixed top-5 right-5 z-50 flex gap-3 no-print">
-        <button @click="toggleLang()"
-            class="bg-dusk-blue text-white px-4 py-2 rounded-full shadow-lg hover:bg-baltic-blue transition-colors font-medium text-sm flex items-center gap-2">
-            <span x-text="lang === 'en' ? 'العربية' : 'English'"></span>
-        </button>
-        <button onclick="window.print()"
-            class="bg-atomic-tangerine text-white px-4 py-2 rounded-full shadow-lg hover:bg-[#e85a25] transition-colors font-medium text-sm flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
-                </path>
-            </svg>
-            Print / PDF
-        </button>
-        <a href="index.html"
-            class="bg-white text-dusk-blue px-4 py-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors font-medium text-sm flex items-center gap-2">
-            Back to Site
-        </a>
+<main class="page">
+  <header class="head">
+    <img src="img/profile.jpg" width="600" height="686" alt="أبوبكر السر خلف الله" data-ar-alt="أبوبكر السر خلف الله" data-en-alt="Abubakr Al-Sir Khalaf-allah">
+    <div>
+      <h1><span data-l="ar">أبوبكر السر خلف الله</span><span data-l="en">Abubakr Al-Sir Khalaf-allah</span></h1>
+      <p class="role"><span data-l="ar">مدرّب رياضي ومعلّم تربية بدنية — أصحاب الهمم والطلاب</span><span data-l="en">Sports Coach and PE Teacher — People of Determination and Students</span></p>
+      <div class="contact">
+        <a class="ltr" href="https://wa.me/971562631624">+971 56 263 1624</a>
+        <a class="ltr" href="mailto:pikoo876@gmail.com">pikoo876@gmail.com</a>
+        <span><span data-l="ar">أبوظبي، الإمارات</span><span data-l="en">Abu Dhabi, UAE</span></span>
+        <span><span data-l="ar">رخصة قيادة إماراتية</span><span data-l="en">UAE driving licence</span></span>
+      </div>
     </div>
+    <div class="sun" aria-hidden="true"></div>
+  </header>
 
-    <!-- Resume Page (A4 Size approximation) -->
-    <main
-        class="container max-w-[210mm] mx-auto bg-white shadow-xl min-h-[297mm] relative overflow-hidden print:min-h-0 print:shadow-none">
+  <div class="cols">
+    <aside>
+      <div class="block">
+        <h2><span data-l="ar">التعليم</span><span data-l="en">Education</span></h2>
+        <div class="item"><b><span data-l="ar">بكالوريوس التربية البدنية</span><span data-l="en">B.Sc. Physical Education</span></b>
+          <span><span data-l="ar">جامعة السودان · ٢٠٠٣</span><span data-l="en">Sudan University · 2003</span></span></div>
+        <div class="item"><b><span data-l="ar">دبلوم علوم الحاسوب</span><span data-l="en">Diploma in Computer Science</span></b>
+          <span><span data-l="ar">المركز الثقافي العربي · ٢٠٠٥</span><span data-l="en">Arab Cultural Center · 2005</span></span></div>
+      </div>
 
-        <!-- Header -->
-        <header class="bg-dusk-blue text-white p-12 print:p-8">
-            <div class="flex justify-between items-start">
-                <div>
-                    <h1 class="font-serif font-black text-3xl md:text-5xl mb-2 tracking-tight" x-text="t[lang].name">
-                    </h1>
-                    <p class="text-xl text-atomic-tangerine font-medium tracking-wide" x-text="t[lang].role"></p>
-                </div>
-                <div class="text-right text-sm text-slate-300 space-y-1">
-                    <p x-text="t[lang].location">Abu Dhabi, UAE</p>
-                    <p x-text="t[lang].badges.license">Valid UAE License</p>
-                    <p class="font-mono text-white pt-2">pikoo876@gmail.com</p>
-                    <p class="font-mono text-white" dir="ltr">+971 56 263 1624</p>
-                </div>
-            </div>
-        </header>
+      <div class="block">
+        <h2><span data-l="ar">الشهادات</span><span data-l="en">Certifications</span></h2>
+        <div class="row"><span><span data-l="ar">دورة التدريب الدولية (FIVB)</span><span data-l="en">International Coaching Course (FIVB)</span></span><span>2016</span></div>
+        <div class="row"><span><span data-l="ar">تحليل الأداء Data Volley</span><span data-l="en">Data Volley performance analysis</span></span><span>2017</span></div>
+        <div class="row"><span><span data-l="ar">الإدارة الرياضية</span><span data-l="en">Sport Management</span></span><span>2018</span></div>
+      </div>
 
-        <div class="grid grid-cols-[1fr_2fr] h-full">
-
-            <!-- Sidebar -->
-            <aside class="bg-beige-bg p-8 print:p-6 space-y-8 h-full min-h-[cal(297mm-150px)]">
-
-                <!-- Skills -->
-                <section>
-                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
-                        x-text="t[lang].headings.skills">Competencies</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <template x-for="skill in t[lang].skills">
-                            <span
-                                class="bg-white px-2 py-1 rounded text-xs font-semibold text-dusk-blue shadow-sm border border-dusk-blue/5"
-                                x-text="skill"></span>
-                        </template>
-                    </div>
-                </section>
-
-                <!-- Languages -->
-                <section>
-                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
-                        x-text="t[lang].headings.languages">Languages</h3>
-                    <div class="space-y-3 text-sm">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span x-text="t[lang].langs.arabic">Arabic</span>
-                                <span class="text-atomic-tangerine font-bold"
-                                    x-text="t[lang].langs.native">Native</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span x-text="t[lang].langs.english">English</span>
-                                <span class="text-atomic-tangerine font-bold"
-                                    x-text="t[lang].langs.fluent">Fluent</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section>
-                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
-                        x-text="t[lang].headings.education">Education</h3>
-                    <div class="space-y-4">
-                        <template x-for="edu in t[lang].education">
-                            <div>
-                                <h4 class="font-bold text-dusk-blue text-sm" x-text="edu.degree"></h4>
-                                <p class="text-xs text-slate-600 mt-0.5" x-text="edu.school"></p>
-                                <p class="text-xs text-baltic-blue mt-0.5" x-text="edu.year"></p>
-                            </div>
-                        </template>
-                    </div>
-                </section>
-
-                <!-- Certifications (Brief) -->
-                <section>
-                    <h3 class="font-bold text-dusk-blue uppercase tracking-widest text-sm border-b border-dusk-blue/20 pb-2 mb-4"
-                        x-text="t[lang].headings.certifications">Certifications</h3>
-                    <ul class="space-y-2 text-xs text-slate-700">
-                        <li class="flex justify-between">
-                            <span class="font-semibold">Intl. Coaching Course (FIVB)</span>
-                            <span class="text-slate-500">2016</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">Sport Management</span>
-                            <span class="text-slate-500">2018</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">Data Volley Analysis</span>
-                            <span class="text-slate-500">2017</span>
-                        </li>
-                    </ul>
-                </section>
-
-            </aside>
-
-            <!-- Main Content -->
-            <div class="p-10 print:p-8 space-y-8">
-
-                <!-- Profile -->
-                <section>
-                    <h2 class="font-serif font-bold text-2xl text-dusk-blue mb-4" x-text="t[lang].headings.profile">
-                        Profile</h2>
-                    <p class="text-sm leading-relaxed text-slate-600 text-justify" x-text="t[lang].about"></p>
-                </section>
-
-                <!-- Experience -->
-                <section>
-                    <h2
-                        class="font-serif font-bold text-2xl text-dusk-blue mb-6 pb-2 border-b border-gray-100 flex justify-between items-baseline">
-                        <span x-text="t[lang].headings.experience">Professional Experience</span>
-                        <span class="text-xs font-sans font-normal text-slate-400">15+ Years</span>
-                    </h2>
-
-                    <div class="space-y-6">
-                        <template x-for="job in t[lang].experience">
-                            <article>
-                                <div class="flex justify-between items-baseline mb-1">
-                                    <h3 class="font-bold text-lg text-slate-800" x-text="job.title"></h3>
-                                    <span class="text-xs font-semibold text-baltic-blue bg-blue-50 px-2 py-1 rounded"
-                                        x-text="job.date"></span>
-                                </div>
-                                <div class="text-atomic-tangerine text-sm font-medium mb-2" x-text="job.company"></div>
-                                <ul class="list-disc ml-4 space-y-1">
-                                    <template x-for="detail in job.details">
-                                        <li class="text-sm text-slate-600 pl-1 leading-snug" x-text="detail"></li>
-                                    </template>
-                                </ul>
-                            </article>
-                        </template>
-                    </div>
-                </section>
-            </div>
+      <div class="block">
+        <h2><span data-l="ar">المهارات</span><span data-l="en">Skills</span></h2>
+        <div class="tags">
+          <span><span data-l="ar">الرياضة لأصحاب الهمم</span><span data-l="en">Adapted sport</span></span>
+          <span><span data-l="ar">التربية البدنية الشاملة</span><span data-l="en">Inclusive PE</span></span>
+          <span><span data-l="ar">تدريب ألعاب القوى</span><span data-l="en">Athletics coaching</span></span>
+          <span><span data-l="ar">تدريب الكرة الطائرة</span><span data-l="en">Volleyball coaching</span></span>
+          <span><span data-l="ar">برامج تدريب فردية</span><span data-l="en">Individual training plans</span></span>
+          <span><span data-l="ar">منهج كامبريدج (CIE)</span><span data-l="en">CIE curriculum</span></span>
+          <span><span data-l="ar">تنظيم الفعاليات</span><span data-l="en">Event organisation</span></span>
+          <span><span data-l="ar">سلامة الرياضيين</span><span data-l="en">Athlete safety</span></span>
+          <span><span data-l="ar">الإسعافات الأولية</span><span data-l="en">First aid</span></span>
         </div>
-    </main>
+      </div>
 
-    <!-- Footer CTA (Mobile Only) -->
-    <div class="text-center py-6 text-slate-400 text-sm no-print md:hidden">
-        <p>Use Desktop to Print to PDF</p>
+      <div class="block">
+        <h2><span data-l="ar">اللغات</span><span data-l="en">Languages</span></h2>
+        <div class="row"><span><span data-l="ar">العربية</span><span data-l="en">Arabic</span></span><span><span data-l="ar">اللغة الأم</span><span data-l="en">Native</span></span></div>
+        <div class="row"><span><span data-l="ar">الإنجليزية</span><span data-l="en">English</span></span><span><span data-l="ar">بطلاقة</span><span data-l="en">Fluent</span></span></div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <div class="block">
+        <h2><span data-l="ar">نبذة</span><span data-l="en">Profile</span></h2>
+        <p class="profile">
+          <span data-l="ar">مدرّب رياضي ومعلّم تربية بدنية بخبرة تزيد على خمسة عشر عاماً مع أصحاب الهمم وطلاب المدارس. شارك مدرباً في بعثة السودان إلى الألعاب العالمية للأولمبياد الخاص في شنغهاي ٢٠٠٧ وأبوظبي ٢٠١٩. يعمل بصبر، ويركّز على ما يستطيع كل شخص فعله، ويرى في الرياضة طريقاً إلى الثقة بالنفس والانتماء والصحة النفسية.</span>
+          <span data-l="en">Sports coach and PE teacher with more than fifteen years of work with people of determination and school students. Coach with Sudan's team at the Special Olympics World Games in Shanghai 2007 and Abu Dhabi 2019. Patient, focused on what each person can do, and convinced that sport builds confidence, belonging and mental health.</span>
+        </p>
+      </div>
+
+      <div class="block">
+        <h2><span data-l="ar">أبرز المحطات</span><span data-l="en">Highlights</span></h2>
+        <div class="hl">
+          <b><span data-l="ar">المدرب الرئيسي لألعاب القوى — بعثة السودان، الألعاب العالمية الصيفية للأولمبياد الخاص</span><span data-l="en">Head Coach, Athletics — Sudan team, Special Olympics World Summer Games</span></b>
+          <div class="meta"><span data-l="ar">٢–١١ أكتوبر ٢٠٠٧ · شنغهاي، الصين</span><span data-l="en">2–11 October 2007 · Shanghai, China</span></div>
+          <ul>
+            <li><span data-l="ar">قاد تدريب عدّائي البعثة، وهو مسجّل مدرباً رئيسياً لألعاب القوى في القائمة الرسمية لبعثة السودان.</span><span data-l="en">Led the training of the team's runners; listed as head coach for athletics on Sudan's official team list.</span></li>
+            <li><span data-l="ar">نال أحد الرياضيين الذين درّبهم الميدالية الفضية في الجري.</span><span data-l="en">One of the athletes he trained won a silver medal in running.</span></li>
+            <li><span data-l="ar">شاركت البعثة في ألعاب القوى والسباحة وتنس الطاولة.</span><span data-l="en">Sudan's team competed in athletics, swimming and table tennis.</span></li>
+          </ul>
+          <div class="srcs"><span data-l="ar">المصدر:</span><span data-l="en">Source:</span>
+            <a href="https://web.archive.org/web/20071215132802/http://www.2007specialolympics.com/webenglish/games/cjfb/G0YCU1TL9JQWDBZ4.html"><span data-l="ar">الموقع الرسمي للألعاب (أرشيف)</span><span data-l="en">official Games website (archived)</span></a></div>
+        </div>
+        <div class="hl">
+          <b><span data-l="ar">مدرب رئيسي — بعثة السودان، الألعاب العالمية للأولمبياد الخاص</span><span data-l="en">Principal Coach — Sudan team, Special Olympics World Games</span></b>
+          <div class="meta"><span data-l="ar">مارس ٢٠١٩ · أبوظبي والشارقة، الإمارات</span><span data-l="en">March 2019 · Abu Dhabi and Sharjah, UAE</span></div>
+          <ul>
+            <li><span data-l="ar">أول ألعاب عالمية للأولمبياد الخاص في الشرق الأوسط وشمال أفريقيا، بمشاركة رياضيين من أكثر من ١٩٠ دولة.</span><span data-l="en">The first Special Olympics World Games in the Middle East and North Africa, with athletes from more than 190 countries.</span></li>
+            <li><span data-l="ar">أقامت البعثة في الشارقة ضمن برنامج المدن المستضيفة، الذي استقبل وفود ٢٤ دولة.</span><span data-l="en">The team stayed in Sharjah as part of the Host Town programme, which welcomed teams from 24 countries.</span></li>
+            <li><span data-l="ar">عاد السودان بـ٤٠ ميدالية: ٢٥ ذهبية و٨ فضيات و٧ برونزيات، في رياضات منها ألعاب القوى والسباحة والبوتشي ورفع الأثقال.</span><span data-l="en">Sudan came home with 40 medals (25 gold, 8 silver, 7 bronze) in sports including athletics, swimming, bocce and weightlifting.</span></li>
+          </ul>
+          <div class="srcs"><span data-l="ar">في الإعلام:</span><span data-l="en">In the press:</span>
+            <a href="https://www.aletihad.ae/article/14293/2019/%D8%A7%D9%84%D8%AC%D9%86%D9%8A%D8%A8%D9%8A-%D8%A3%D9%88%D9%84%D9%85%D8%A8%D9%8A%D8%A7%D8%AF-%D8%B9%D8%A7%D9%84%D9%85%D9%8A-%D8%A8%D9%86%D9%83%D9%87%D8%A9-%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%D9%8A%D8%A9"><span data-l="ar">الاتحاد</span><span data-l="en">Aletihad</span></a> ·
+            <a href="https://www.albayan.ae/sports/all-games/2019-03-09-1.3507246"><span data-l="ar">البيان</span><span data-l="en">Al Bayan</span></a> ·
+            <a href="https://sudanow-magazine.net/page.php?Id=631"><span data-l="ar">سودان ناو</span><span data-l="en">Sudanow</span></a> ·
+            <a href="https://www.youtube.com/watch?v=Q5W0fmez-wY"><span data-l="ar">تقرير تلفزيوني</span><span data-l="en">TV report</span></a></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2><span data-l="ar">التدريب والتدريس</span><span data-l="en">Coaching and teaching</span></h2>
+        <div class="job">
+          <div class="top"><h3><span data-l="ar">معلّم تربية بدنية</span><span data-l="en">Physical Education Teacher</span></h3>
+            <span class="date"><span data-l="ar">يونيو ٢٠١٧ – أبريل ٢٠١٩</span><span data-l="en">Jun 2017 – Apr 2019</span></span></div>
+          <div class="org"><span data-l="ar">مدرسة كامبريدج الدولية، السودان</span><span data-l="en">Cambridge International School, Sudan</span></div>
+          <ul>
+            <li><span data-l="ar">تدريس التربية البدنية وفق منهج كامبريدج (CIE) لفصول متنوعة القدرات من الروضة حتى الصف الثاني عشر.</span><span data-l="en">Taught PE on the Cambridge (CIE) curriculum to mixed-ability classes from KG to Grade 12.</span></li>
+            <li><span data-l="ar">تنظيم الأيام الرياضية ومسابقات البيوت والسباحة بمشاركة جميع الطلاب.</span><span data-l="en">Organised sports days, inter-house competitions and swimming galas that included every student.</span></li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="top"><h3><span data-l="ar">مدرّب ومشرف لياقة بدنية</span><span data-l="en">Trainer and Fitness Supervisor</span></h3>
+            <span class="date"><span data-l="ar">يونيو ٢٠١٧ – أبريل ٢٠١٩</span><span data-l="en">Jun 2017 – Apr 2019</span></span></div>
+          <div class="org"><span data-l="ar">نادي الصحة العالمي، السودان</span><span data-l="en">World Health Sports Club, Sudan</span></div>
+          <ul>
+            <li><span data-l="ar">تصميم برامج تدريب فردية لأهداف مختلفة.</span><span data-l="en">Built individual training programmes for different goals.</span></li>
+            <li><span data-l="ar">شرح التمارين وتصحيح الأداء لضمان تقدّم آمن بلا إصابات.</span><span data-l="en">Demonstrated exercises and corrected form for safe progress without injury.</span></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <script>
-        function resumeApp() {
-            return {
-                lang: localStorage.getItem('cv_lang') || 'en',
-                toggleLang() {
-                    this.lang = this.lang === 'en' ? 'ar' : 'en';
-                    document.documentElement.setAttribute('dir', this.lang === 'ar' ? 'rtl' : 'ltr');
-                },
-                init() {
-                    document.documentElement.setAttribute('dir', this.lang === 'ar' ? 'rtl' : 'ltr');
-                },
-                t: {
-                    en: {
-                        name: "Abubakr Al-Sir",
-                        role: "PE Teacher & Fitness Coach",
-                        location: "Abu Dhabi, UAE",
-                        badges: { license: "UAE Driving License" },
-                        headings: {
-                            profile: "Professional Profile",
-                            experience: "Professional Experience",
-                            education: "Education",
-                            skills: "Competencies",
-                            languages: "Languages",
-                            certifications: "Certifications"
-                        },
-                        about: "Dedicated Physical Education teacher with over 15 years of experience in youth development and sports training. Proven track record including a Silver Medal at the Special Olympics (2007). Expert in student safeguarding, event management, and British Curriculum (CIE) delivery.",
-                        langs: { arabic: "Arabic", english: "English", native: "Native", fluent: "Fluent" },
-                        skills: ["Curriculum Planning", "Safeguarding", "Inclusive Ed (SEN)", "Event Org", "Team Leadership", "First Aid"],
-                        education: [
-                            { degree: "B.Sc. in Physical Education", school: "Sudan University", year: "2003" },
-                            { degree: "Diploma in Computer Science", school: "Arab Cultural Center", year: "2005" }
-                        ],
-                        experience: [
-                            {
-                                date: "2023 - Present",
-                                title: "Customer Service Rep",
-                                company: "Hemaya Company, UAE",
-                                details: [
-                                    "Managed diverse stakeholder communications in high-pressure environments.",
-                                    "Resolved complex issues with a focus on satisfaction and retention."
-                                ]
-                            },
-                            {
-                                date: "2019 - 2023",
-                                title: "Security Team Leader",
-                                company: "Star Company, UAE",
-                                details: [
-                                    "Led safeguarding protocols and risk assessments for large sites.",
-                                    "Conducted emergency response drills and staff training."
-                                ]
-                            },
-                            {
-                                date: "2017 - 2019",
-                                title: "PE Teacher",
-                                company: "Cambridge Intl. School",
-                                details: [
-                                    "Delivered British Curriculum (CIE) PE lessons for mixed-ability classes.",
-                                    "Organized inclusive sports days and safe swimming galas."
-                                ]
-                            },
-                            {
-                                date: "2017 - 2019",
-                                title: "Fitness Supervisor",
-                                company: "World Health Sports Club",
-                                details: [
-                                    "Designed safe, individualized training programs for diverse clients.",
-                                    "Ensured injury prevention through proper technique instruction."
-                                ]
-                            }
-                        ]
-                    },
-                    ar: {
-                        name: "أبوبكر السر",
-                        role: "معلم تربية بدنية ومدرب",
-                        location: "أبوظبي، الإمارات",
-                        badges: { license: "رخصة قيادة إماراتية" },
-                        headings: {
-                            profile: "الملف الشخصي",
-                            experience: "الخبرة العملية",
-                            education: "المؤهلات",
-                            skills: "الكفاءات",
-                            languages: "اللغات",
-                            certifications: "الشهادات"
-                        },
-                        about: "معلم تربية بدنية متفاني بخبرة تزيد عن 15 عاماً. سجل حافل بالنجاحات يشمل ميدالية فضية في الأولمبياد الخاص (2007). خبير في حماية الطلاب، وتنظيم الفعاليات، وتدريس المنهج البريطاني.",
-                        langs: { arabic: "العربية", english: "الإنجليزية", native: "اللغة الأم", fluent: "طلاقة" },
-                        skills: ["تخطيط المناهج", "حماية الطلاب", "التعليم الشامل", "تنظيم الفعاليات", "القيادة", "الإسعافات"],
-                        education: [
-                            { degree: "بكالوريوس تربية رياضية", school: "جامعة السودان", year: "2003" },
-                            { degree: "دبلوم علوم كمبيوتر", school: "المركز الثقافي العربي", year: "2005" }
-                        ],
-                        experience: [
-                            {
-                                date: "2023 - حتى الآن",
-                                title: "ممثل خدمة عملاء",
-                                company: "شركة حماية، الإمارات",
-                                details: [
-                                    "إدارة التواصل مع الجهات المعنية في بيئة عمل عالية الضغط.",
-                                    "حل المشكلات المعقدة مع التركيز على رضا العملاء."
-                                ]
-                            },
-                            {
-                                date: "2019 - 2023",
-                                title: "قائد فريق أمن",
-                                company: "شركة ستار، الإمارات",
-                                details: [
-                                    "قيادة بروتوكولات الحماية وتقييم المخاطر للمواقع.",
-                                    "إجراء تدريبات الطوارئ وتدريب الموظفين."
-                                ]
-                            },
-                            {
-                                date: "2017 - 2019",
-                                title: "معلم تربية بدنية",
-                                company: "مدرسة كامبريدج الدولية",
-                                details: [
-                                    "تدريس المنهج البريطاني (CIE) لجميع المراحل.",
-                                    "تنظيم الأيام الرياضية والمسابقات بأسلوب شامل."
-                                ]
-                            },
-                            {
-                                date: "2017 - 2019",
-                                title: "مشرف لياقة بدنية",
-                                company: "نادي الصحة العالمي",
-                                details: [
-                                    "تصميم برامج تدريب آمنة وفردية للعملاء.",
-                                    "ضمان الوقاية من الإصابات من خلال التعليم الصحيح."
-                                ]
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    </script>
+  <div class="footline"><span data-l="ar">المزيد من الصور والمصادر على الموقع</span><span data-l="en">More photos and sources on the website</span></div>
+</main>
+
 </body>
-
 </html>

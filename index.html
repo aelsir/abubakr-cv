@@ -1,595 +1,390 @@
 <!DOCTYPE html>
-<html lang="en" x-data="cvApp()" :dir="lang === 'ar' ? 'rtl' : 'ltr'" class="scroll-smooth">
-
+<html lang="ar" dir="rtl" class="no-js"
+      data-title-ar="أبوبكر السر خلف الله — مدرّب رياضي لأصحاب الهمم والطلاب"
+      data-title-en="Abubakr Al-Sir Khalaf-allah — Sports coach for people of determination and students">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title x-text="t[lang].name + ' - ' + t[lang].role">Abubakr Al-Sir Khalaf-allah - PE Teacher</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Open+Sans:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap"
-        rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'dusk-blue': '#004e89',
-                        'baltic-blue': '#1a659e',
-                        'atomic-tangerine': '#ff6b35',
-                        'peach-glow': '#f7c59f',
-                        'beige-bg': '#efefd0',
-                    },
-                    fontFamily: {
-                        sans: ['"Open Sans"', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
-                        arabic: ['Tajawal', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        [x-cloak] {
-            display: none !important;
-        }
-
-        /* Font switching based on direction/lang */
-        html[dir="rtl"] body,
-        html[dir="rtl"] h1,
-        html[dir="rtl"] h2,
-        html[dir="rtl"] h3,
-        html[dir="rtl"] .font-heading {
-            font-family: 'Tajawal', sans-serif !important;
-        }
-
-        /* Modern Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-100 {
-            transition-delay: 100ms;
-        }
-
-        .delay-200 {
-            transition-delay: 200ms;
-        }
-
-        .delay-300 {
-            transition-delay: 300ms;
-        }
-
-        /* Timeline Connector Line */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: rgba(0, 78, 137, 0.15);
-            /* dusk-blue/15 */
-            transform: translateX(-50%);
-        }
-
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>أبوبكر السر خلف الله — مدرّب رياضي لأصحاب الهمم والطلاب</title>
+  <meta name="description" content="مدرّب رياضي ومعلّم تربية بدنية لأصحاب الهمم والطلاب. المدرب الرئيسي لألعاب القوى في بعثة السودان، الأولمبياد الخاص شنغهاي ٢٠٠٧. Sports coach and PE teacher for people of determination and students.">
+  <meta property="og:title" content="أبوبكر السر خلف الله — Abubakr Al-Sir Khalaf-allah">
+  <meta property="og:description" content="مدرّب رياضي لأصحاب الهمم والطلاب · Sports coach for people of determination and students">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="img/hero.jpg">
+  <meta name="theme-color" content="#f4efe6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23c4583a'/%3E%3Cpath d='M10 0v32M22 0v32' stroke='%23fffaf2' stroke-width='2'/%3E%3Ccircle cx='16' cy='17' r='7' fill='%23f2b632'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css?v=6">
+  <script src="js/lang.js?v=6"></script>
 </head>
+<body>
 
-<body
-    class="bg-beige-bg text-dusk-blue font-sans antialiased overflow-x-hidden selection:bg-atomic-tangerine selection:text-white">
+<!-- ============ TOP BAR ============ -->
+<header class="bar">
+  <div class="in">
+    <a class="brand" href="#top"><span data-l="ar">أبوبكر السر</span><span data-l="en">Abubakr Al-Sir</span></a>
+    <div class="end">
+      <nav class="nav">
+        <a href="#about"><span data-l="ar">عنّي</span><span data-l="en">About</span></a>
+        <a href="#journey"><span data-l="ar">المسيرة</span><span data-l="en">Journey</span></a>
+        <a href="#photos"><span data-l="ar">الصور</span><span data-l="en">Photos</span></a>
+        <a href="#certificates"><span data-l="ar">الشهادات</span><span data-l="en">Certificates</span></a>
+        <a href="#press"><span data-l="ar">المصادر</span><span data-l="en">Press</span></a>
+        <a href="#contact"><span data-l="ar">تواصل</span><span data-l="en">Contact</span></a>
+      </nav>
+      <button class="lang" type="button" data-lang-toggle><span data-l="ar">English</span><span data-l="en">العربية</span></button>
+    </div>
+  </div>
+</header>
 
-    <!-- Navigation -->
-    <nav
-        class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg shadow-sm py-4 border-b border-white/20">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="font-heading font-black text-2xl tracking-tight text-dusk-blue group">
-                ABUBAKR<span class="text-atomic-tangerine group-hover:animate-pulse">.</span>
-            </a>
+<main id="top">
 
-            <div class="flex items-center gap-4">
-                <div class="hidden md:flex gap-8 font-semibold text-sm tracking-wide">
-                    <a href="#about"
-                        class="hover:text-atomic-tangerine transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-atomic-tangerine after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                        x-text="t[lang].nav.about">About</a>
-                    <a href="#experience"
-                        class="hover:text-atomic-tangerine transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-atomic-tangerine after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                        x-text="t[lang].nav.experience">Experience</a>
-                    <a href="resume.html"
-                        class="hover:text-atomic-tangerine transition-colors text-baltic-blue font-bold flex items-center gap-1"
-                        target="_blank">
-                        📄 <span x-text="lang === 'en' ? 'Resume' : 'السيرة الذاتية'">Resume</span>
-                    </a>
-                </div>
-                <!-- Language Pill -->
-                <button @click="toggleLang()"
-                    class="relative overflow-hidden group flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-dusk-blue text-white text-sm font-bold shadow-md hover:shadow-lg hover:shadow-atomic-tangerine/30 transition-all duration-300">
-                    <div
-                        class="absolute inset-0 w-full h-full bg-atomic-tangerine scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
-                    </div>
-                    <span class="relative z-10 flex items-center gap-2">
-                        <span x-text="lang === 'en' ? 'العربية' : 'English'"></span>
-                    </span>
-                </button>
-            </div>
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="track" aria-hidden="true"></div>
+  <div class="lnums" aria-hidden="true">
+    <span><span data-l="ar">١</span><span data-l="en">1</span></span>
+    <span><span data-l="ar">٢</span><span data-l="en">2</span></span>
+    <span><span data-l="ar">٣</span><span data-l="en">3</span></span>
+    <span><span data-l="ar">٤</span><span data-l="en">4</span></span>
+  </div>
+  <div class="portrait">
+    <img src="img/hero.jpg" width="1288" height="966"
+         alt="أبوبكر السر بجانب شعار الألعاب العالمية للأولمبياد الخاص أبوظبي ٢٠١٩"
+         data-ar-alt="أبوبكر السر بجانب شعار الألعاب العالمية للأولمبياد الخاص أبوظبي ٢٠١٩"
+         data-en-alt="Abubakr Al-Sir beside the Special Olympics World Games Abu Dhabi 2019 logo">
+    <div class="sun" aria-hidden="true"></div>
+  </div>
+  <div class="htxt">
+    <h1>
+      <span data-l="ar">السباق طويل،<br>والصبر أوّل تمرين.</span>
+      <span data-l="en">The race is long.<br>Patience is the first drill.</span>
+    </h1>
+    <p class="sub">
+      <b><span data-l="ar">أبوبكر السر خلف الله</span><span data-l="en">Abubakr Al-Sir Khalaf-allah</span></b>
+      <span data-l="ar">مدرّب رياضي ومعلّم تربية بدنية لأصحاب الهمم والطلاب.</span>
+      <span data-l="en">Sports coach and PE teacher for people of determination and students.</span>
+    </p>
+  </div>
+  <div class="cta">
+    <a class="btn solid" href="https://wa.me/971562631624" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      <span data-l="ar">واتساب</span><span data-l="en">WhatsApp</span>
+    </a>
+    <a class="btn" href="mailto:pikoo876@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="M2 6l10 7 10-7"/></svg>
+      <span data-l="ar">راسلني بالبريد</span><span data-l="en">Email me</span>
+    </a>
+    <a class="btn text" href="resume.html" data-lang-link><span data-l="ar">السيرة الذاتية</span><span data-l="en">View resume</span></a>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="reveal">
+  <div class="wrap">
+    <div class="kick"><span data-l="ar">عنّي</span><span data-l="en">About me</span></div>
+    <h2>
+      <span data-l="ar">أحبّ أن أرى التدريب يغيّر حياة الناس.</span>
+      <span data-l="en">I love seeing coaching change people's lives.</span>
+    </h2>
+    <p class="body">
+      <span data-l="ar">أكثر من خمسة عشر عاماً في الملاعب والصالات والمدارس. أعمل مع أصحاب الهمم ومع طلاب المدارس، وأبدأ دائماً من حيث يقف الشخص، ثم نتقدّم معاً بالسرعة التي تناسبه.</span>
+      <span data-l="en">More than fifteen years on tracks, courts and in schools. I work with people of determination and with school students. I always start where the person is, then we move forward together at the pace that suits them.</span>
+    </p>
+    <div class="who">
+      <span><span data-l="ar">أصحاب الهمم</span><span data-l="en">People of determination</span></span>
+      <span><span data-l="ar">طلاب المدارس</span><span data-l="en">School students</span></span>
+      <span><span data-l="ar">الفرق</span><span data-l="en">Teams</span></span>
+    </div>
+    <div class="vals">
+      <div class="val">
+        <span class="n"><span data-l="ar">١</span><span data-l="en">1</span></span>
+        <div><h3><span data-l="ar">الصبر</span><span data-l="en">Patience</span></h3>
+          <p><span data-l="ar">أعطي كل شخص الوقت الذي يحتاجه.</span><span data-l="en">I give every person the time they need.</span></p></div>
+      </div>
+      <div class="val">
+        <span class="n"><span data-l="ar">٢</span><span data-l="en">2</span></span>
+        <div><h3><span data-l="ar">الشغف</span><span data-l="en">Passion</span></h3>
+          <p><span data-l="ar">أحب هذا العمل، ويظهر ذلك في كل حصة.</span><span data-l="en">I love this work, and it shows in every session.</span></p></div>
+      </div>
+      <div class="val">
+        <span class="n"><span data-l="ar">٣</span><span data-l="en">3</span></span>
+        <div><h3><span data-l="ar">التفاؤل</span><span data-l="en">Optimism</span></h3>
+          <p><span data-l="ar">أركّز على ما يستطيع الشخص فعله، لا على ما لا يستطيعه.</span><span data-l="en">I focus on what a person can do, not on what they can't.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEYOND SPORT ============ -->
+<div class="mind" id="mind">
+  <div class="wrap reveal">
+    <div class="kick"><span data-l="ar">أبعد من الرياضة</span><span data-l="en">Beyond sport</span></div>
+    <h2>
+      <span data-l="ar">التمرين يقوّي النفس قبل العضلات</span>
+      <span data-l="en">Training builds the mind before the muscles</span>
+    </h2>
+    <p class="body">
+      <span data-l="ar">ما أراه في كل موسم: الرياضي الذي يصل إلى خط النهاية يخرج من الملعب شخصاً أكثر ثقة وهدوءاً.</span>
+      <span data-l="en">What I see every season: an athlete who reaches the finish line leaves the field more confident and more settled.</span>
+    </p>
+    <div class="gains">
+      <details>
+        <summary><span data-l="ar">الثقة بالنفس</span><span data-l="en">Confidence</span></summary>
+        <p><span data-l="ar">كل إنجاز صغير، كأول قفزة أو أول لفّة كاملة، يبني إيماناً بأن «أنا أستطيع».</span>
+           <span data-l="en">Every small win, a first jump or a first full lap, builds the belief that "I can".</span></p>
+      </details>
+      <details>
+        <summary><span data-l="ar">الانتماء والصداقة</span><span data-l="en">Belonging and friendship</span></summary>
+        <p><span data-l="ar">الفريق يعطي مكاناً ودوراً وأصدقاء، وهذا مهم خاصة لمن يشعر بالعزلة.</span>
+           <span data-l="en">A team gives a place, a role and friends. That matters most for anyone who feels alone.</span></p>
+      </details>
+      <details>
+        <summary><span data-l="ar">الهدوء وتحسّن المزاج</span><span data-l="en">Calm and a better mood</span></summary>
+        <p><span data-l="ar">الحركة المنتظمة تخفّف التوتر والقلق، وتحسّن النوم والتركيز.</span>
+           <span data-l="en">Regular movement eases stress and anxiety, and helps sleep and focus.</span></p>
+      </details>
+      <details>
+        <summary><span data-l="ar">الاستقلالية</span><span data-l="en">Independence</span></summary>
+        <p><span data-l="ar">الالتزام بالتمرين والتعليمات ينتقل إلى الحياة اليومية: في البيت والمدرسة والعمل.</span>
+           <span data-l="en">Keeping to a routine and following instructions carries over into daily life: at home, at school and at work.</span></p>
+      </details>
+    </div>
+  </div>
+</div>
+
+<!-- ============ JOURNEY ============ -->
+<section id="journey">
+  <div class="wrap">
+    <div class="kick"><span data-l="ar">المسيرة</span><span data-l="en">Journey</span></div>
+    <h2><span data-l="ar">محطات على المضمار</span><span data-l="en">Milestones on the track</span></h2>
+
+    <div class="lane" id="lane">
+      <div class="rail" aria-hidden="true"></div><div class="fill" aria-hidden="true"></div><div class="runner" aria-hidden="true"></div>
+
+      <article class="stop reveal">
+        <div class="yr"><span data-l="ar">٢٠٠٣</span><span data-l="en">2003</span></div>
+        <h3><span data-l="ar">جامعة السودان</span><span data-l="en">Sudan University</span></h3>
+        <p><span data-l="ar">بكالوريوس التربية البدنية، وبداية الطريق مع فرق الجامعة.</span>
+           <span data-l="en">Bachelor's degree in Physical Education, and the start of the road with the university teams.</span></p>
+        <img class="shot" src="img/g/sudan-university.jpg" width="1600" height="702" loading="lazy"
+             alt="فريق جامعة السودان" data-ar-alt="فريق جامعة السودان" data-en-alt="Sudan University team">
+      </article>
+
+      <article class="stop reveal">
+        <div class="yr"><span data-l="ar">٢٠٠٧</span><span data-l="en">2007</span></div>
+        <img class="logo l07" src="img/logo-2007.png" width="263" height="216" loading="lazy" alt="Special Olympics World Summer Games Shanghai 2007">
+        <h3><span data-l="ar">شنغهاي — الألعاب العالمية الصيفية للأولمبياد الخاص</span>
+            <span data-l="en">Shanghai — Special Olympics World Summer Games</span></h3>
+        <p><span data-l="ar">المدرب الرئيسي لألعاب القوى في بعثة السودان. نال أحد الرياضيين الذين درّبهم الميدالية الفضية في الجري.</span>
+           <span data-l="en">Head coach for athletics in Sudan's team. One of the athletes he trained won a silver medal in running.</span></p>
+        <div class="badges">
+          <span class="badge silver"><span data-l="ar">ميدالية فضية</span><span data-l="en">Silver medal</span></span>
+          <span class="badge"><span data-l="ar">ألعاب القوى</span><span data-l="en">Athletics</span></span>
         </div>
-    </nav>
+        <a class="src" href="https://web.archive.org/web/20071215132802/http://www.2007specialolympics.com/webenglish/games/cjfb/G0YCU1TL9JQWDBZ4.html" target="_blank" rel="noopener">
+          <span data-l="ar">السجل الرسمي لبعثة السودان، واسمه فيه</span><span data-l="en">Official Sudan team list, with his name</span></a>
+      </article>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-[90vh] flex items-center pt-20">
-        <!-- Liquid Background Shapes -->
-        <div
-            class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-white/40 to-transparent skew-x-12 pointer-events-none">
+      <article class="stop reveal">
+        <div class="yr"><span data-l="ar">٢٠١٧ <small>– ٢٠١٩</small></span><span data-l="en">2017 <small>– 2019</small></span></div>
+        <h3><span data-l="ar">تدريس وتدريب في السودان</span><span data-l="en">Teaching and coaching in Sudan</span></h3>
+        <h4><span data-l="ar">معلّم تربية بدنية — مدرسة كامبريدج الدولية</span><span data-l="en">PE teacher — Cambridge International School</span></h4>
+        <p><span data-l="ar">حصص التربية البدنية وفق منهج كامبريدج (CIE) لفصول متنوعة القدرات من الروضة حتى الصف الثاني عشر. تنظيم الأيام الرياضية ومسابقات البيوت والسباحة، مع إشراك كل الطلاب.</span>
+           <span data-l="en">PE lessons on the Cambridge (CIE) curriculum for mixed-ability classes from KG to Grade 12. Organised sports days, inter-house competitions and swimming galas, with every student included.</span></p>
+        <h4><span data-l="ar">مدرّب ومشرف لياقة — نادي الصحة العالمي</span><span data-l="en">Trainer and fitness supervisor — World Health Sports Club</span></h4>
+        <p><span data-l="ar">برامج تدريب فردية لأهداف مختلفة، وتصحيح الأداء لتقدّم آمن بلا إصابات.</span>
+           <span data-l="en">Individual training programmes for different goals, and form correction for safe progress without injury.</span></p>
+      </article>
+
+      <article class="stop reveal">
+        <div class="yr"><span data-l="ar">٢٠١٩</span><span data-l="en">2019</span></div>
+        <img class="logo l19" src="img/logo-2019.jpg" width="700" height="250" loading="lazy" alt="Special Olympics World Games Abu Dhabi 2019">
+        <h3><span data-l="ar">أبوظبي — الألعاب العالمية للأولمبياد الخاص</span>
+            <span data-l="en">Abu Dhabi — Special Olympics World Games</span></h3>
+        <p><span data-l="ar">مدرب رئيسي ضمن بعثة السودان. أقامت البعثة في الشارقة ضمن برنامج المدن المستضيفة، وعاد السودان بـ٤٠ ميدالية.</span>
+           <span data-l="en">Principal coach with Sudan's team. The team stayed in Sharjah as part of the Host Town programme, and Sudan came home with 40 medals.</span></p>
+        <div class="badges">
+          <span class="badge"><span data-l="ar">الشارقة · المدينة المستضيفة</span><span data-l="en">Sharjah · Host Town</span></span>
+          <span class="badge"><span data-l="ar">٤٠ ميدالية للسودان</span><span data-l="en">40 medals for Sudan</span></span>
         </div>
-        <div
-            class="absolute top-20 left-10 w-64 h-64 bg-peach-glow/30 rounded-full blur-3xl animate-pulse-slow pointer-events-none">
-        </div>
-        <div
-            class="absolute bottom-10 right-10 w-96 h-96 bg-atomic-tangerine/10 rounded-full blur-3xl animate-float pointer-events-none">
-        </div>
+        <img class="shot" src="img/g/team-celebration.jpg" width="1288" height="966" loading="lazy"
+             alt="أبوبكر السر مع فريق السودان، أبوظبي ٢٠١٩" data-ar-alt="أبوبكر السر مع فريق السودان، أبوظبي ٢٠١٩" data-en-alt="Abubakr Al-Sir with Sudan's team, Abu Dhabi 2019">
+        <a class="src" href="https://sudanow-magazine.net/page.php?Id=631" target="_blank" rel="noopener"><span data-l="ar">سودان ناو: ٤٠ ميدالية</span><span data-l="en">Sudanow: 40 medals</span></a>
+        <a class="src" href="https://www.aletihad.ae/article/14293/2019/%D8%A7%D9%84%D8%AC%D9%86%D9%8A%D8%A8%D9%8A-%D8%A3%D9%88%D9%84%D9%85%D8%A8%D9%8A%D8%A7%D8%AF-%D8%B9%D8%A7%D9%84%D9%85%D9%8A-%D8%A8%D9%86%D9%83%D9%87%D8%A9-%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%D9%8A%D8%A9" target="_blank" rel="noopener"><span data-l="ar">الاتحاد: البعثة في الشارقة</span><span data-l="en">Aletihad: the team in Sharjah</span></a>
+      </article>
 
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <article class="stop reveal">
+        <div class="yr"><span data-l="ar">اليوم</span><span data-l="en">Today</span></div>
+        <h3><span data-l="ar">الإمارات</span><span data-l="en">United Arab Emirates</span></h3>
+        <p><span data-l="ar">متاح لتدريب الأفراد، والعمل مع المدارس والمراكز والأندية.</span>
+           <span data-l="en">Available to train individuals, and to work with schools, centres and clubs.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
 
-            <div class="relative z-10 space-y-8 reveal active">
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-peach-glow shadow-sm text-sm font-bold text-dusk-blue">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    <span x-text="lang === 'en' ? 'Open to Work in UAE' : 'متاح للعمل في الإمارات'">Open to Work</span>
-                </div>
+<!-- ============ PHOTOS ============ -->
+<section id="photos">
+  <div class="wrap">
+    <div class="kick"><span data-l="ar">الصور</span><span data-l="en">Photos</span></div>
+    <h2><span data-l="ar">من الملعب</span><span data-l="en">From the field</span></h2>
+  </div>
+  <div class="strip">
+    <figure>
+      <button type="button"><img src="img/g/team-court.jpg" width="1288" height="966" loading="lazy" alt="فريق السودان في صالة الكرة الطائرة" data-ar-alt="فريق السودان في صالة الكرة الطائرة" data-en-alt="Sudan's team on the volleyball court"></button>
+      <figcaption><b><span data-l="ar">فريق السودان في صالة الكرة الطائرة</span><span data-l="en">Sudan's team on the volleyball court</span></b><span data-l="ar">أبوظبي ٢٠١٩</span><span data-l="en">Abu Dhabi 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/team-celebration.jpg" width="1288" height="966" loading="lazy" alt="احتفال مع الفريق" data-ar-alt="احتفال مع الفريق" data-en-alt="Celebrating with the team"></button>
+      <figcaption><b><span data-l="ar">احتفال مع الفريق</span><span data-l="en">Celebrating with the team</span></b><span data-l="ar">أبوظبي ٢٠١٩</span><span data-l="en">Abu Dhabi 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/games-logo.jpg" width="1288" height="966" loading="lazy" alt="في الألعاب العالمية" data-ar-alt="في الألعاب العالمية" data-en-alt="At the World Games"></button>
+      <figcaption><b><span data-l="ar">في الألعاب العالمية</span><span data-l="en">At the World Games</span></b><span data-l="ar">أبوظبي ٢٠١٩</span><span data-l="en">Abu Dhabi 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/adnec-break.jpg" width="1288" height="966" loading="lazy" alt="بين المنافسات" data-ar-alt="بين المنافسات" data-en-alt="Between competitions"></button>
+      <figcaption><b><span data-l="ar">بين المنافسات</span><span data-l="en">Between competitions</span></b><span data-l="ar">أبوظبي ٢٠١٩</span><span data-l="en">Abu Dhabi 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/games-colleague.jpg" width="1280" height="960" loading="lazy" alt="مع أحد أعضاء فريق الألعاب" data-ar-alt="مع أحد أعضاء فريق الألعاب" data-en-alt="With a member of the Games team"></button>
+      <figcaption><b><span data-l="ar">مع أحد أعضاء فريق الألعاب</span><span data-l="en">With a member of the Games team</span></b><span data-l="ar">أبوظبي ٢٠١٩</span><span data-l="en">Abu Dhabi 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/sharjah-arrival.jpg" width="1288" height="966" loading="lazy" alt="الوصول إلى الشارقة" data-ar-alt="الوصول إلى الشارقة" data-en-alt="Arriving in Sharjah"></button>
+      <figcaption><b><span data-l="ar">الوصول إلى الشارقة، المدينة المستضيفة</span><span data-l="en">Arriving in Sharjah, the host city</span></b><span data-l="ar">الشارقة ٢٠١٩</span><span data-l="en">Sharjah 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/sharjah-morning.jpg" width="1280" height="960" loading="lazy" alt="صباح قبل التدريب" data-ar-alt="صباح قبل التدريب" data-en-alt="A morning before training"></button>
+      <figcaption><b><span data-l="ar">صباح قبل التدريب</span><span data-l="en">A morning before training</span></b><span data-l="ar">الشارقة ٢٠١٩</span><span data-l="en">Sharjah 2019</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/sudan-university.jpg" width="1600" height="702" loading="lazy" alt="فريق جامعة السودان" data-ar-alt="فريق جامعة السودان" data-en-alt="Sudan University team"></button>
+      <figcaption><b><span data-l="ar">فريق جامعة السودان</span><span data-l="en">Sudan University team</span></b><span data-l="ar">السودان</span><span data-l="en">Sudan</span></figcaption>
+    </figure>
+    <figure>
+      <button type="button"><img src="img/g/archive.jpg" width="720" height="540" loading="lazy" alt="من الأرشيف" data-ar-alt="من الأرشيف" data-en-alt="From the archive"></button>
+      <figcaption><b><span data-l="ar">من الأرشيف</span><span data-l="en">From the archive</span></b><span data-l="ar">السودان</span><span data-l="en">Sudan</span></figcaption>
+    </figure>
+  </div>
+  <div class="strip-nav">
+    <button type="button" data-strip="-1" aria-label="السابق" data-ar-aria-label="السابق" data-en-aria-label="Previous"><span data-l="ar">→</span><span data-l="en">←</span></button>
+    <button type="button" data-strip="1" aria-label="التالي" data-ar-aria-label="التالي" data-en-aria-label="Next"><span data-l="ar">←</span><span data-l="en">→</span></button>
+  </div>
+</section>
 
-                <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-dusk-blue leading-[1.1]">
-                    <span x-text="t[lang].hero.greeting"
-                        class="block text-3xl md:text-4xl font-semibold opacity-80 mb-2">Hello, I'm</span>
-                    <span x-text="t[lang].name_short">Abubakr.</span>
-                    <span class="text-atomic-tangerine">.</span>
-                </h1>
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certificates">
+  <div class="wrap">
+    <div class="kick"><span data-l="ar">الشهادات</span><span data-l="en">Certifications</span></div>
+    <h2><span data-l="ar">المؤهلات والشهادات</span><span data-l="en">Qualifications and certificates</span></h2>
+    <div class="bibs">
+      <article class="bib reveal">
+        <div class="bib-top"><span data-l="ar">مؤهل جامعي</span><span data-l="en">Degree</span></div>
+        <div class="no"><span data-l="ar">٢٠٠٣</span><span data-l="en">2003</span></div>
+        <h3><span data-l="ar">بكالوريوس التربية البدنية</span><span data-l="en">B.Sc. Physical Education</span></h3>
+        <p><span data-l="ar">جامعة السودان</span><span data-l="en">Sudan University</span></p>
+      </article>
+      <article class="bib reveal">
+        <div class="bib-top"><span data-l="ar">شهادة دولية</span><span data-l="en">International certificate</span></div>
+        <div class="no"><span data-l="ar">٢٠١٦</span><span data-l="en">2016</span></div>
+        <h3><span data-l="ar">دورة المدربين الدولية</span><span data-l="en">International Coaching Course</span></h3>
+        <p><span data-l="ar">الاتحاد الدولي للكرة الطائرة (FIVB)</span><span data-l="en">International Volleyball Federation (FIVB)</span></p>
+      </article>
+      <article class="bib reveal">
+        <div class="bib-top"><span data-l="ar">شهادة</span><span data-l="en">Certificate</span></div>
+        <div class="no"><span data-l="ar">٢٠١٧</span><span data-l="en">2017</span></div>
+        <h3><span data-l="ar">تحليل الأداء الرياضي</span><span data-l="en">Sports performance analysis</span></h3>
+        <p><span data-l="ar">برنامج Data Volley</span><span data-l="en">Data Volley software</span></p>
+      </article>
+      <article class="bib reveal">
+        <div class="bib-top"><span data-l="ar">شهادة</span><span data-l="en">Certificate</span></div>
+        <div class="no"><span data-l="ar">٢٠١٨</span><span data-l="en">2018</span></div>
+        <h3><span data-l="ar">الإدارة الرياضية</span><span data-l="en">Sport Management</span></h3>
+        <p><span data-l="ar">إدارة الفرق والفعاليات الرياضية</span><span data-l="en">Managing teams and sports events</span></p>
+      </article>
+    </div>
+  </div>
+</section>
 
-                <p class="text-xl md:text-2xl text-baltic-blue font-medium max-w-lg leading-relaxed border-l-4 border-peach-glow pl-6"
-                    x-text="t[lang].role_desc">
-                    Empowering students through inclusivity, safety, and modern physical education.
-                </p>
+<!-- ============ PRESS ============ -->
+<section id="press" class="reveal">
+  <div class="wrap">
+    <div class="kick"><span data-l="ar">المصادر والإعلام</span><span data-l="en">Sources and press</span></div>
+    <h2><span data-l="ar">موثّق في الأخبار</span><span data-l="en">On the record</span></h2>
+    <button class="video" type="button" data-id="Q5W0fmez-wY" aria-label="تشغيل فيديو فريق السودان" data-ar-aria-label="تشغيل فيديو فريق السودان" data-en-aria-label="Play video about Sudan's team">
+      <span class="play" aria-hidden="true"></span>
+      <span class="vt"><span data-l="ar">فريق السودان في الألعاب العالمية للأولمبياد الخاص — صباحات سودانية</span><span data-l="en">Sudan's team at the Special Olympics World Games (Arabic TV report)</span></span>
+    </button>
+    <div class="press-list">
+      <a class="key" href="https://web.archive.org/web/20071215132802/http://www.2007specialolympics.com/webenglish/games/cjfb/G0YCU1TL9JQWDBZ4.html" target="_blank" rel="noopener">
+        <span><span data-l="ar">قائمة بعثة السودان — المدرب الرئيسي لألعاب القوى</span><span data-l="en">Sudan team list: head coach, athletics</span>
+          <span class="src-name"><span data-l="ar">الموقع الرسمي لألعاب شنغهاي ٢٠٠٧ (أرشيف)</span><span data-l="en">Official Shanghai 2007 Games website (archived)</span></span></span>
+        <span class="meta"><span data-l="ar">٢٠٠٧ ↗</span><span data-l="en">2007 ↗</span></span></a>
+      <a href="https://www.aletihad.ae/article/14293/2019/%D8%A7%D9%84%D8%AC%D9%86%D9%8A%D8%A8%D9%8A-%D8%A3%D9%88%D9%84%D9%85%D8%A8%D9%8A%D8%A7%D8%AF-%D8%B9%D8%A7%D9%84%D9%85%D9%8A-%D8%A8%D9%86%D9%83%D9%87%D8%A9-%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%D9%8A%D8%A9" target="_blank" rel="noopener">
+        <span>«الجنيبي: أولمبياد عالمي بنكهة إماراتية»
+          <span class="src-name"><span data-l="ar">صحيفة الاتحاد · بعثة السودان في الشارقة</span><span data-l="en">Aletihad (Arabic) · Sudan's team in Sharjah</span></span></span>
+        <span class="meta"><span data-l="ar">٢٠١٩ ↗</span><span data-l="en">2019 ↗</span></span></a>
+      <a href="https://www.albayan.ae/sports/all-games/2019-03-09-1.3507246" target="_blank" rel="noopener">
+        <span>«الشارقة ترحّب بوفود 24 دولة»
+          <span class="src-name"><span data-l="ar">صحيفة البيان · السودان بين الوفود</span><span data-l="en">Al Bayan (Arabic) · Sudan among the teams</span></span></span>
+        <span class="meta"><span data-l="ar">٢٠١٩ ↗</span><span data-l="en">2019 ↗</span></span></a>
+      <a href="https://sudanow-magazine.net/page.php?Id=631" target="_blank" rel="noopener">
+        <span>Sudanese Athletes Collect 40 Medals In The Abu Dhabi Special Olympics
+          <span class="src-name"><span data-l="ar">مجلة سودان ناو</span><span data-l="en">Sudanow Magazine</span></span></span>
+        <span class="meta"><span data-l="ar">٢٠١٩ ↗</span><span data-l="en">2019 ↗</span></span></a>
+      <a href="https://www.youtube.com/watch?v=Q5W0fmez-wY" target="_blank" rel="noopener">
+        <span><span data-l="ar">فيديو على يوتيوب</span><span data-l="en">Video on YouTube</span>
+          <span class="src-name">صباحات سودانية</span></span>
+        <span class="meta">▶ ↗</span></a>
+    </div>
+  </div>
+</section>
 
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#contact"
-                        class="px-8 py-4 bg-atomic-tangerine text-white font-bold rounded-xl shadow-lg shadow-atomic-tangerine/30 hover:shadow-xl hover:-translate-y-1 hover:bg-[#ff5722] transition-all duration-300 flex items-center gap-2">
-                        <span x-text="t[lang].hero.cta_contact">Get in Touch</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                    <a href="resume.html" target="_blank"
-                        class="px-8 py-4 bg-white text-dusk-blue font-bold rounded-xl shadow-md border border-neutral-200 hover:border-baltic-blue hover:text-baltic-blue transition-all duration-300 flex items-center gap-2">
-                        <span>📄</span>
-                        <span x-text="t[lang].hero.cta_work">View Resume</span>
-                    </a>
-                </div>
+</main>
 
-                <div class="flex items-center gap-8 pt-4 opacity-80 hover:opacity-100 transition-opacity">
-                    <div class="flex items-center gap-3">
-                        <div class="p-2 bg-white rounded-lg shadow-sm text-2xl">🚗</div>
-                        <div class="text-sm font-bold leading-tight">
-                            <span class="block text-dusk-blue" x-text="t[lang].badges.license">UAE License</span>
-                            <span class="text-xs text-slate-500">Valid</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ============ CONTACT ============ -->
+<footer class="finish" id="contact">
+  <div class="wrap">
+    <div class="kick"><span data-l="ar">خط النهاية</span><span data-l="en">Finish line</span></div>
+    <h2><span data-l="ar">لنبدأ التدريب معاً</span><span data-l="en">Let's start training together</span></h2>
+    <div class="grid">
+      <a class="btn solid" href="https://wa.me/971562631624" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span data-l="ar">واتساب</span><span data-l="en">WhatsApp</span> <span class="v">+971 56 263 1624</span>
+      </a>
+      <a class="btn" href="mailto:pikoo876@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="M2 6l10 7 10-7"/></svg>
+        <span data-l="ar">البريد</span><span data-l="en">Email</span> <span class="v">pikoo876@gmail.com</span>
+      </a>
+      <a class="btn" href="contact.vcf" download="Abubakr-Al-Sir.vcf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>
+        <span data-l="ar">احفظ جهة الاتصال</span><span data-l="en">Save contact</span>
+      </a>
+      <a class="btn" href="resume.html" data-lang-link>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h8M9 17h8"/></svg>
+        <span data-l="ar">السيرة الذاتية</span><span data-l="en">Resume</span>
+      </a>
+    </div>
+    <p class="foot"><span data-l="ar">© أبوبكر السر خلف الله</span><span data-l="en">© Abubakr Al-Sir Khalaf-allah</span></p>
+  </div>
+</footer>
 
-            <!-- Hero Image Frame -->
-            <div class="relative reveal active delay-200 hidden lg:block group perspective-1000">
-                <div
-                    class="relative z-10 transform transition-all duration-700 hover:rotate-y-12 hover:rotate-x-6 preserve-3d">
-                    <!-- Image Card -->
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-                        <!-- Using a high quality Unsplash alternative since Pixabay forbids direct linking without API -->
-                        <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=2070&auto=format&fit=crop"
-                            alt="Professional Football"
-                            class="w-full h-[600px] object-cover scale-100 group-hover:scale-105 transition-transform duration-700">
+<!-- ============ PHOTO VIEWER ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="الصور" data-ar-aria-label="الصور" data-en-aria-label="Photos">
+  <button class="x" type="button" aria-label="إغلاق" data-ar-aria-label="إغلاق" data-en-aria-label="Close">✕</button>
+  <img alt="">
+  <div class="cap"></div>
+  <div class="ctrl">
+    <button type="button" data-prev aria-label="السابق" data-ar-aria-label="السابق" data-en-aria-label="Previous"><span data-l="ar">→</span><span data-l="en">←</span></button>
+    <span class="count"></span>
+    <button type="button" data-next aria-label="التالي" data-ar-aria-label="التالي" data-en-aria-label="Next"><span data-l="ar">←</span><span data-l="en">→</span></button>
+  </div>
+</div>
 
-                        <!-- Overlay Card -->
-                        <div
-                            class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50">
-                            <div class="flex items-start justify-between">
-                                <div>
-                                    <h3 class="font-heading font-bold text-dusk-blue text-xl">Silver Medalist Coach</h3>
-                                    <p class="text-sm font-medium text-slate-500">Special Olympics World Games •
-                                        Shanghai 2007</p>
-                                </div>
-                                <span class="text-3xl">🥈</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Back Drop Element -->
-                <div
-                    class="absolute -inset-4 bg-dusk-blue rounded-[2.5rem] -z-10 rotate-3 opacity-10 group-hover:rotate-6 transition-transform duration-500">
-                </div>
-            </div>
-
-        </div>
-    </header>
-
-    <!-- About Stats Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="reveal">
-                    <h2 class="font-heading text-4xl font-bold text-dusk-blue mb-6 leading-tight"
-                        x-text="t[lang].headings.profile">Professional Profile</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-8 text-justify" x-text="t[lang].about"></p>
-
-                    <!-- Language Bars -->
-                    <div class="space-y-6 bg-beige-bg/50 p-8 rounded-2xl border border-beige-bg">
-                        <h3 class="font-bold text-dusk-blue flex items-center gap-2">
-                            <svg class="w-5 h-5 text-atomic-tangerine" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5h12M9 3v2m1.204 12.596a12.004 12.004 0 01-9.53-7.536m3.86 3.945a6.002 6.002 0 01-2.247.927m0 0L8 12.338C6.111 13.614 5 16.338 5 19v1">
-                                </path>
-                            </svg>
-                            <span x-text="t[lang].headings.languages">Languages</span>
-                        </h3>
-                        <div>
-                            <div class="flex justify-between text-sm font-bold mb-2">
-                                <span x-text="t[lang].langs.arabic">Arabic</span>
-                                <span class="text-atomic-tangerine">Native</span>
-                            </div>
-                            <div class="h-3 bg-white rounded-full overflow-hidden shadow-inner">
-                                <div class="h-full bg-baltic-blue w-full rounded-full"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-bold mb-2">
-                                <span x-text="t[lang].langs.english">English</span>
-                                <span class="text-atomic-tangerine">Professional Fluent</span>
-                            </div>
-                            <div class="h-3 bg-white rounded-full overflow-hidden shadow-inner">
-                                <div class="h-full bg-baltic-blue w-[90%] rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4 reveal delay-200">
-                    <div
-                        class="bg-dusk-blue text-white p-8 rounded-3xl flex flex-col justify-between h-48 hover:-translate-y-2 transition-transform duration-300">
-                        <span class="text-4xl">🎓</span>
-                        <div>
-                            <div class="text-3xl font-heading font-bold">B.Sc.</div>
-                            <div class="text-sm opacity-80">Physical Education</div>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-peach-glow text-dusk-blue p-8 rounded-3xl flex flex-col justify-between h-48 hover:-translate-y-2 transition-transform duration-300">
-                        <span class="text-4xl">🏫</span>
-                        <div>
-                            <div class="text-3xl font-heading font-bold">15+</div>
-                            <div class="text-sm font-bold opacity-80">Years Experience</div>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-white border-2 border-beige-bg p-8 rounded-3xl flex flex-col justify-between h-48 hover:-translate-y-2 transition-transform duration-300 col-span-2 shadow-sm">
-                        <span class="text-4xl">🛡️</span>
-                        <div>
-                            <div class="text-xl font-heading font-bold">Safeguarding Expert</div>
-                            <div class="text-sm text-slate-500">Risk Assessment • Student Safety • First Aid</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Redesign (Grid Based) -->
-    <section id="experience" class="py-24 bg-beige-bg relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <span class="text-atomic-tangerine font-bold tracking-widest uppercase text-sm">Career Journey</span>
-                <h2 class="font-heading text-4xl m:text-5xl font-bold text-dusk-blue mt-2"
-                    x-text="t[lang].headings.experience">Professional Experience</h2>
-            </div>
-
-            <div class="relative max-w-5xl mx-auto">
-                <!-- Center Line -->
-                <div class="timeline-line"></div>
-
-                <template x-for="(job, index) in t[lang].experience">
-                    <article class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-x-8 mb-16 group reveal">
-
-                        <!-- Left Side Content (If Even) or Date (If Odd) -->
-                        <div :class="index % 2 === 0 ? 'md:text-right' : 'md:order-3 md:text-left'"
-                            class="flex flex-col justify-center">
-                            <!-- Card Content -->
-                            <div
-                                class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-atomic-tangerine hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group-hover:border-baltic-blue">
-                                <h3 class="font-heading font-bold text-xl text-dusk-blue" x-text="job.title"></h3>
-                                <div class="text-atomic-tangerine font-semibold mb-4" x-text="job.company"></div>
-                                <ul class="space-y-3">
-                                    <template x-for="detail in job.details">
-                                        <li class="text-sm text-slate-600 leading-relaxed flex items-start gap-2"
-                                            :class="index % 2 === 0 ? 'md:justify-end' : ''">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-peach-glow shrink-0"
-                                                :class="index % 2 === 0 ? 'md:order-2' : ''"></span>
-                                            <span x-text="detail"></span>
-                                        </li>
-                                    </template>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Center Dot -->
-                        <div class="hidden md:flex flex-col items-center relative">
-                            <div
-                                class="w-5 h-5 rounded-full bg-white border-4 border-atomic-tangerine z-10 group-hover:scale-125 transition-transform duration-300 shadow-md my-auto">
-                            </div>
-                        </div>
-
-                        <!-- Right Side Content (If Odd) or Date (If Even) -->
-                        <div :class="index % 2 === 0 ? 'md:order-3 md:text-left' : 'md:text-right'"
-                            class="flex flex-col justify-center py-4 md:py-0">
-                            <!-- Date Badge (floating opposite the card) -->
-                            <div class="hidden md:block">
-                                <span
-                                    class="inline-block px-4 py-2 rounded-lg bg-dusk-blue/5 text-dusk-blue font-bold text-sm tracking-wide"
-                                    x-text="job.date"></span>
-                            </div>
-                            <!-- Mobile Date (Shown above card usually, but here we handle mobile layout via grid-cols-1) -->
-                            <div class="md:hidden text-center mb-4">
-                                <span
-                                    class="inline-block px-4 py-2 rounded-lg bg-dusk-blue/5 text-dusk-blue font-bold text-sm tracking-wide"
-                                    x-text="job.date"></span>
-                            </div>
-                        </div>
-
-                    </article>
-                </template>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Grid -->
-    <section id="skills" class="py-24 bg-dusk-blue text-white relative">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="font-heading text-4xl font-bold text-center mb-16" x-text="t[lang].headings.skills">Core
-                Competencies</h2>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Static Alpine Loop -->
-                <template x-for="(skill, idx) in t[lang].skills">
-                    <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white hover:text-dusk-blue transition-all duration-300 cursor-default reveal"
-                        :style="`transition-delay: ${idx * 50}ms`">
-                        <div
-                            class="absolute top-4 right-4 text-white/20 group-hover:text-atomic-tangerine transition-colors text-xl">
-                            ✦</div>
-                        <h4 class="font-bold text-lg" x-text="skill"></h4>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-white pt-24 pb-12">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto reveal">
-                <h2 class="font-heading text-5xl font-black text-dusk-blue mb-8">Let's Work Together.</h2>
-                <p class="text-xl text-slate-500 mb-12">Bringing professional excellence, safety, and energy to your
-                    institution.</p>
-
-                <div class="flex flex-col sm:flex-row justify-center gap-6 mb-20">
-                    <a href="mailto:pikoo876@gmail.com"
-                        class="group relative px-8 py-4 bg-dusk-blue text-white font-bold rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all">
-                        <div
-                            class="absolute inset-0 w-full h-full bg-baltic-blue translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        </div>
-                        <span class="relative z-10 flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            pikoo876@gmail.com
-                        </span>
-                    </a>
-                    <a href="https://wa.me/971562631624" target="_blank"
-                        class="group relative px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all">
-                        <div
-                            class="absolute inset-0 w-full h-full bg-[#128C7E] translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        </div>
-                        <span class="relative z-10 flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.731 6.086l.474.854-1.021 3.75z" />
-                            </svg>
-                            Chat on WhatsApp
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400">
-                <p>&copy; 2025 Abubakr Al-Sir. All Rights Reserved.</p>
-                <p>Designed with <span class="text-atomic-tangerine">♥</span> for Excellence.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-
-        function cvApp() {
-            return {
-                lang: localStorage.getItem('cv_lang') || 'en',
-                toggleLang() {
-                    const newLang = this.lang === 'en' ? 'ar' : 'en';
-                    this.lang = newLang;
-                    localStorage.setItem('cv_lang', newLang);
-                    document.documentElement.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
-                },
-                t: {
-                    en: {
-                        name: "Abubakr Al-Sir Khalaf-allah",
-                        name_short: "Abubakr",
-                        role: "PE Teacher & Fitness Coach",
-                        role_desc: "Empowering students through inclusivity, safety, and modern physical education.",
-                        badges: { license: "UAE Driving License" },
-                        nav: { about: "About", experience: "Journey" },
-                        hero: { greeting: "Hello, I'm", cta_contact: "Get in Touch", cta_work: "View Resume" },
-                        headings: {
-                            profile: "Professional Profile",
-                            experience: "Professional Experience",
-                            skills: "Core Competencies",
-                            languages: "Languages"
-                        },
-                        about: "A dedicated Physical Education teacher and fitness coach with over 15 years of experience. I specialize in youth development, student safeguarding, and producing champion athletes—highlighted by my role as a Silver Medalist Coach at the 2007 Special Olympics. I combine deep empathy with rigorous safety standards to create environments where every student thrives.",
-                        langs: { arabic: "Arabic", english: "English", native: "Native", fluent: "Fluent" },
-                        skills: [
-                            "Curriculum Planning (CIE)", "Classroom Management", "Safeguarding Expert",
-                            "Inclusive Education (SEN)", "Event Organization", "Team Leadership",
-                            "Performance Analysis", "First Aid & CPR"
-                        ],
-                        experience: [
-                            {
-                                date: "Oct 2023 - Present",
-                                title: "Customer Service Representative",
-                                company: "Hemaya Company, UAE",
-                                details: [
-                                    "Managed diverse stakeholder communications in a high-pressure environment.",
-                                    "Resolved complex issues with a focus on satisfaction, retention, and conflict resolution."
-                                ]
-                            },
-                            {
-                                date: "Jul 2019 - Sep 2023",
-                                title: "Security Team Leader (Safeguarding)",
-                                company: "Star Company, UAE",
-                                details: [
-                                    "Managed safety protocols/risk assessments for large sites, directly transferrable to school safeguarding.",
-                                    "Led emergency response drills and supervised team discipline to ensure zero-incident environments."
-                                ]
-                            },
-                            {
-                                date: "Jun 2017 - Apr 2019",
-                                title: "Physical Education Teacher",
-                                company: "Cambridge International School, Sudan",
-                                details: [
-                                    "Delivered British Curriculum (CIE) PE lessons for mixed-ability classes (K-12).",
-                                    "Organized inter-house competitions, sports days, and safe swimming galas with full inclusivity."
-                                ]
-                            },
-                            {
-                                date: "Jun 2017 - Apr 2019",
-                                title: "Trainer and Fitness Supervisor",
-                                company: "World Health Sports Club, Sudan",
-                                details: [
-                                    "Built individualized training programs for diverse client goals including weight loss and muscle gain.",
-                                    "Demonstrated techniques, corrected form, and ensured safe progression to prevent injury."
-                                ]
-                            }
-                        ]
-                    },
-                    ar: {
-                        name: "أبوبكر السر خلف الله",
-                        name_short: "أبوبكر",
-                        role: "معلم تربية بدنية ومدرب لياقة",
-                        role_desc: "تمكين الطلاب من خلال الشمولية، السلامة، والتعليم الرياضي الحديث.",
-                        badges: { license: "رخصة قيادة إماراتية" },
-                        nav: { about: "نبذة عني", experience: "الخبرة" },
-                        hero: { greeting: "مرحباً، أنا", cta_contact: "تواصل معي", cta_work: "السيرة الذاتية" },
-                        headings: {
-                            profile: "الملف الشخصي",
-                            experience: "الخبرة العملية",
-                            skills: "المهارات الأساسية",
-                            languages: "اللغات"
-                        },
-                        about: "معلم تربية بدنية وخبير لياقة بخبرة تزيد عن 15 عاماً. أتخصص في تطوير الشباب، حماية الطلاب، وصناعة الأبطال - وأبرز إنجازاتي قيادة فريق للفوز بالميدالية الفضية في الأولمبياد الخاص 2007. أدمج بين التعاطف العميق ومعايير السلامة الصارمة لخلق بيئة يزدهر فيها كل طالب.",
-                        langs: { arabic: "العربية", english: "الإنجليزية", native: "اللغة الأم", fluent: "طلاقة تامة" },
-                        skills: [
-                            "تخطيط المناهج (CIE)", "إدارة الفصول الدراسية", "خبير حماية وسلامة",
-                            "التعليم الشامل (أصحاب الهمم)", "تنظيم الفعاليات", "قيادة الفرق",
-                            "تحليل الأداء", "الإسعافات الأولية"
-                        ],
-                        experience: [
-                            {
-                                date: "أكتوبر 2023 - حتى الآن",
-                                title: "ممثل خدمة عملاء",
-                                company: "شركة حماية، الإمارات",
-                                details: [
-                                    "إدارة التواصل مع مختلف الجهات المعنية في بيئة عمل عالية الضغط.",
-                                    "حل المشكلات المعقدة مع التركيز على رضا العملاء."
-                                ]
-                            },
-                            {
-                                date: "يوليو 2019 - سبتمبر 2023",
-                                title: "قائد فريق أمن (تركيز على السلامة)",
-                                company: "شركة ستار، الإمارات",
-                                details: [
-                                    "إدارة بروتوكولات السلامة وتقييم المخاطر للمواقع الكبيرة.",
-                                    "قيادة تدريبات الطوارئ والإشراف على انضباط الفريق."
-                                ]
-                            },
-                            {
-                                date: "يونيو 2017 - أبريل 2019",
-                                title: "معلم تربية بدنية",
-                                company: "مدرسة كامبريدج الدولية، السودان",
-                                details: [
-                                    "تدريس حصص التربية البدنية وفق المنهج البريطاني (CIE).",
-                                    "تنظيم المسابقات المدرسية والأيام الرياضية."
-                                ]
-                            },
-                            {
-                                date: "يونيو 2017 - أبريل 2019",
-                                title: "مدرب ومشرف لياقة بدنية",
-                                company: "نادي الصحة العالمي، السودان",
-                                details: [
-                                    "تصميم برامج تدريب فردية لأهداف متنوعة.",
-                                    "شرح وتصحيح التمارين لضمان التقدم الآمن."
-                                ]
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    </script>
+<script src="js/site.js?v=6"></script>
 </body>
-
 </html>
